@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+<table class="table">
+	<tr>
+		<td style="font-weight: bold;">Id Project</td>
+		<td style="font-weight: bold;">Project's name</td>
+		<td style="font-weight: bold;">Project's butget</td>
+	</tr>
+	<tr th:each="project:${projects}">
+		<td th:text="${project.id}"></td>
+		<td th:text="${project.name}"></td>
+		<td th:text="${project.butget}"></td>
+	</tr>
+</table>
+
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

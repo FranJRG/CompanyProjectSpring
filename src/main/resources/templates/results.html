@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+<div style="background-color: green; height: 60px; height: 60px; margin: 50px;">
+	<h3 align="center" style="color: aliceblue; padding-top: 10px;"><span th:text="${result}"></span></h3>
+</div>
+
+
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+<table>
+	<tr>
+		<td>Employee's id</td>
+		<td>Employee's firstName</td>
+		<td>Employee's lastName</td>
+		<td>Employee's email</td>
+		<td>Employee's gender</td>
+		<td>Employee's dateOfBirth</td>
+		<td>Employee's idCompany</td>
+		<td>Employee's rol</td>
+	</tr>
+	<tr th:each="employee:${employees}">
+		<td th:text="${employee.id}"></td>
+		<td th:text="${employee.firstName}"></td>
+		<td th:text="${employee.lastName}"></td>
+		<td th:text="${employee.email}"></td>
+		<td th:text="${employee.gender}"></td>
+		<td th:text="${employee.dateOfBirth}"></td>
+		<td th:text="${employee.idCompany}"></td>
+		<td th:text="${employee.rol}"></td>
+	</tr>
+</table>
+
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

@@ -1,9 +1,11 @@
 package com.jacaranda.employeeProject.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +18,10 @@ public class Company {
 	private String name;
 	private String address;
 	private String city;
+	
+	@OneToMany(mappedBy="idCompany")
+	List<Employee>employees;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,6 +46,7 @@ public class Company {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(address, city, id, name);

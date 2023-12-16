@@ -18,5 +18,8 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 	
+	public void addEmployee(Employee e) {
+		employeeRepository.save(e);
+	}
 
 }

@@ -56,5 +56,31 @@ public class CompanyController {
 		
 	}
 	
+	@GetMapping("/editCompany")
+	public String addCompany(Model model, @RequestParam("id")int id) {
+		Company company = companyService.findCompany(id);
+		model.addAttribute("company",company);
+		return "editCompany";
+	}
+	
+	@PostMapping("/editCompany")
+	public String editCompany(Model model, @ModelAttribute Company company,BindingResult bindingResults) {
+		String result = " ";
+		if(!bindingResults.hasErrors()) {
+			Company companyEdit = companyService.findCompany(company.getId());
+			if(companyEdit!=null) {
+				companyEdit.setId(company.getId());
+				companyEdit.setName(company.getName());
+				companyEdit.setAddress(company.getAddress());
+				companyEdit.setCity(company.getCity());
+				companyService.addCompany(companyEdit);
+				result = "Company edited correctly";
+				model.addAttribute("result",result);
+				return "results";
+			}
+		}
+		return "editCompany";
+	}
+	
 	
 }

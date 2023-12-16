@@ -16,6 +16,7 @@
 		<td th:text="${companie.name}"></td>
 		<td th:text="${companie.address}"></td>
 		<td th:text="${companie.city}"></td>
+		<td><a class="btn btn-primary" th:href="@{'/editCompany?id=' + ${companie.id}}">Editar</a></td>
 	</tr>
 </table>
 

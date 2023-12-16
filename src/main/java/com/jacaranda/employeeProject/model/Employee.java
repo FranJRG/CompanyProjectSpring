@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,7 +26,9 @@ public class Employee {
 	
 	private Date dateOfBirth;
 	
-	private Integer idCompany;
+	@ManyToOne
+	@JoinColumn(name="idCompany")
+	private Company idCompany;
 	
 	private String password;
 	
@@ -32,6 +36,23 @@ public class Employee {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public Employee() {
+		super();
+	}
+
+	public Employee(Integer id, String firstName, String lastName, String email, String gender, Date dateOfBirth,
+			Company idCompany, String rol) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.idCompany = idCompany;
+		this.rol = rol;
 	}
 
 	public void setId(Integer id) {
@@ -78,11 +99,11 @@ public class Employee {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Integer getIdCompany() {
+	public Company getIdCompany() {
 		return idCompany;
 	}
 
-	public void setIdCompany(Integer idCompany) {
+	public void setIdCompany(Company idCompany) {
 		this.idCompany = idCompany;
 	}
 

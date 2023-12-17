@@ -26,4 +26,7 @@ public class CompanyService {
 		return companyRepository.findById(id).orElse(null);
 	}
 	
+	public void deleteCompany(Company c) {
+		companyRepository.delete(c);
+	}
 }

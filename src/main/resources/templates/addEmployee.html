@@ -5,12 +5,7 @@
 <nav th:replace="layout/menu :: menuJacaranda"></nav>
 
 	<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
-	  <div class="form-group row">
-	    <div class="col-8">
-	      <input hidden id="id" name="id" th:field="*{id}" type="text" class="form-control">
-	      <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"><p>
-	  </div>
-	  </div>
+	  <input hidden id="id" name="id" th:field="*{id}" type="text" class="form-control">
 	  <div class="form-group row">
 	    <label for="name" class="col-4 col-form-label">Name</label> 
 	    <div class="col-8">

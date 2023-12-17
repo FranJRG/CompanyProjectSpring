@@ -3,38 +3,37 @@
 <div th:replace="layout/head :: head"></div>
 <body>
 <nav th:replace="layout/menu :: menuJacaranda"></nav>
-
-	<form th:action="@{/addCompany}" th:object="${company}" method="post">
+	<h1 align="center">Edit Company</h1>
+	<form th:action="@{/deleteCompany}" th:object="${company}" method="post">
 	  <div class="form-group row">
+	    <label for="id" class="col-4 col-form-label">Id company</label> 
 	    <div class="col-8">
-	        <input hidden id="id" name="id" th:field="*{id}" type="text" class="form-control">
-	        <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"><p>
+	      <div class="input-group">
+	        <input id="id" name="id" th:field="*{id}" type="text" readonly class="form-control">
+	      </div>
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="name" class="col-4 col-form-label">Name</label> 
 	    <div class="col-8">
 	      <input id="name" name="name" th:field="*{name}" type="text" class="form-control">
-	      <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"><p>
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="address" class="col-4 col-form-label">Address</label> 
 	    <div class="col-8">
 	      <input id="address" name="address" th:field="*{address}" type="text" class="form-control">
-	      <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"><p>
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="city" class="col-4 col-form-label">City</label> 
 	    <div class="col-8">
 	      <input id="city" name="city" th:field="*{city}" type="text" class="form-control">
-	      <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"><p>
 	    </div>
 	  </div> 
 	  <div class="form-group row">
 	    <div class="offset-4 col-8">
-	      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+	      <button name="submit" type="submit" class="btn btn-danger">Delete</button>
 	    </div>
 	  </div>
 	</form>

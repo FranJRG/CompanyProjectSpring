@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,6 +81,20 @@ public class CompanyController {
 			}
 		}
 		return "editCompany";
+	}
+	
+	@GetMapping("/deleteCompany")
+	public String getDeleteCompany(Model model, @RequestParam int id) {
+		Company company = companyService.findCompany(id);
+		model.addAttribute("company",company);
+		return "deleteCompany";
+	}
+	
+	@PostMapping("/deleteCompany")
+	public String deleteCompany(Model model, @ModelAttribute Company company) {
+		companyService.deleteCompany(company);
+		model.addAttribute("result","Delete successfully");
+		return "results";
 	}
 	
 	

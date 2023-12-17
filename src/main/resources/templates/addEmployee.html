@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+	<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
+	  <div class="form-group row">
+	    <div class="col-8">
+	      <input hidden id="id" name="id" th:field="*{id}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"><p>
+	  </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="name" class="col-4 col-form-label">Name</label> 
+	    <div class="col-8">
+	      <input id="name" name="name" th:field="*{firstName}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"><p>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="address" class="col-4 col-form-label">Last name</label> 
+	    <div class="col-8">
+	      <input id="address" name="address" th:field="*{lastName}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"><p>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="city" class="col-4 col-form-label">Email</label> 
+	    <div class="col-8">
+	      <input id="city" name="city" th:field="*{email}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"><p>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="city" class="col-4 col-form-label">Gender</label> 
+	    <div class="col-8">
+	      <input id="city" name="city" th:field="*{gender}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"><p>
+	    </div>
+	  </div> 
+	  <div class="form-group row">
+	    <label for="city" class="col-4 col-form-label">Date of birth</label> 
+	    <div class="col-8">
+	      <input id="dateOfBirth" name="dateOfBirth" th:field="*{dateOfBirth}" type="date" class="form-control">
+	      <p th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"><p>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+		<label for="select" class="col-4 col-form-label">Select Company</label> 
+		<div class="col-8">
+		  <select id="idCompany" name="idCompany" class="custom-select">
+			<option></option>
+			<option th:each="company:${companies}" th:value="${company.id}" th:text="${company.name}"></option>
+		  </select>
+		</div>
+	  </div>  
+	  <div class="form-group row">
+	    <label for="city" class="col-4 col-form-label">Rol</label> 
+	    <div class="col-8">
+	      <input id="rol" name="rol" th:field="*{rol}" type="text" class="form-control">
+	      <p th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"><p>
+	    </div>
+	  </div> 
+	  <div class="form-group row">
+	    <div class="offset-4 col-8">
+	      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+	    </div>
+	  </div>
+	</form>
+	
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

@@ -21,5 +21,9 @@ public class EmployeeService {
 	public void addEmployee(Employee e) {
 		employeeRepository.save(e);
 	}
+	
+	public Employee getEmployee(int id) {
+		return employeeRepository.findById(id).orElse(null);
+	}
 
 }

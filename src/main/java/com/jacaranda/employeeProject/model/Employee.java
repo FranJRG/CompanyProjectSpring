@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -118,6 +119,7 @@ public class Employee {
 	public String getRol() {
 		return rol;
 	}
+	
 
 	public void setRol(String rol) {
 		this.rol = rol;
